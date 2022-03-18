@@ -1,0 +1,57 @@
+
+
+<script>
+
+	let playerSelection = "Rock"
+	playerSelection = playerSelection.toLowerCase();
+	
+	let computerSelection = computerPlay();
+
+	play(playerSelection, computerSelection);
+
+	function computerPlay(){
+		let choiceList = ["rock", "paper", "scissors"];
+		let choice = Math.floor(Math.random() * 3);
+
+		return choiceList[choice];
+	}
+
+	function play(playerSelection, computerSelection){
+		switch(playerSelection) {
+			case "rock":
+				if (computerSelection === "scissors"){
+					return "Well done! Rock beats Scissors"
+				} else if (computerSelection === "paper"){
+					return "You lose! Paper beats Rock!"
+				} else {
+					return "It's a tie!"
+				}
+				break;
+
+			case "paper":
+				if (computerSelection === "rock"){
+					return "Well done! Paper beats Rock"
+				} else if (computerSelection === "scissors"){
+					return "You lose! Scissors beats Paper!"
+				} else {
+					return "It's a tie!"
+				}
+				break;
+
+			case "scissors":
+				if (computerSelection === "paper"){
+					return "Well done! Scissors beats Paper"
+				} else if (computerSelection === "rock"){
+					return "You lose! Rock beats Scissors!"
+				} else {
+					return "It's a tie!"
+				}
+				break
+		}
+	}
+
+	function game(){
+		play(playerSelection, computerSelection);
+	}
+
+</script>

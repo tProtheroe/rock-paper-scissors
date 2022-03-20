@@ -2,7 +2,7 @@
 
 <script>
 
-	let playerSelection = "Rock"
+	let playerSelection = "SCissorS"
 	playerSelection = playerSelection.toLowerCase();
 	
 	let computerSelection = computerPlay();
@@ -50,8 +50,35 @@
 		}
 	}
 
+
 	function game(){
-		play(playerSelection, computerSelection);
+		playerScore = 0;
+		computerScore = 0;
+
+		for(i = 0; i < 5; i++){
+			computerSelection = computerPlay();
+
+			if(play(playerSelection, computerSelection).includes("lose")){
+				computerScore++;
+			} else if(play(playerSelection, computerSelection).includes("Well")){
+				playerScore++;
+			}
+			console.log("Player: " + playerSelection);
+			console.log("Computer: " + computerSelection);
+			console.log(play(playerSelection, computerSelection));
+			console.log(playerScore);
+			console.log(computerScore);
+		}
+
+		if(playerScore > computerScore){
+			console.log("The winner is the Player with " + playerScore + " points!");
+		} else if(playerScore < computerScore){
+			console.log("The winner is the Computer with " + computerScore + " points!");
+		} else {
+			console.log("We have a tie!");
+		}
 	}
+
+	game();
 
 </script>
